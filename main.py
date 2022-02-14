@@ -136,7 +136,7 @@ def main(args) :
         print((f"Epoch: {epoch}, Train loss: {train_loss:.3f}, Valid loss: {valid_loss:.3f}, "f"Epoch time = {(end_time - start_time):.3f}s"))
 
         # 에폭마다 loss의 history를 남김
-        np.savetxt("log_dir/loss_history.txt", np.array([train_losses, valid_losses]), fmt="%.4e")
+        np.savetxt(args.log_dir+"/loss_history.txt", np.array([train_losses, valid_losses]), fmt="%.4e")
 
         if epoch == 1 :
             LEAST_VALID_LOSS = valid_loss
