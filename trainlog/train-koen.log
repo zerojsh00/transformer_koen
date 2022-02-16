@@ -1,0 +1,84 @@
+3.6.13 |Anaconda, Inc.| (default, Jun  4 2021, 14:25:59) 
+[GCC 7.5.0]
+디바이스 : cuda
+어휘 생성 중 ...
+모델을 빌딩하는 중 ...
+Epoch: 1, Train loss: 4.498, Valid loss: 3.501, Epoch time = 2584.680s
+Epoch: 2, Train loss: 2.915, Valid loss: 2.214, Epoch time = 2432.322s
+모델 갱신 : valid loss 2.214012753881419
+Epoch: 3, Train loss: 2.182, Valid loss: 1.862, Epoch time = 2470.763s
+모델 갱신 : valid loss 1.8618164873638923
+Epoch: 4, Train loss: 1.894, Valid loss: 1.697, Epoch time = 2439.455s
+모델 갱신 : valid loss 1.696862312193114
+Epoch: 5, Train loss: 1.728, Valid loss: 1.597, Epoch time = 2438.182s
+모델 갱신 : valid loss 1.5968561249848312
+Epoch: 6, Train loss: 1.614, Valid loss: 1.534, Epoch time = 2533.351s
+모델 갱신 : valid loss 1.5336535264139917
+Epoch: 7, Train loss: 1.531, Valid loss: 1.485, Epoch time = 2457.959s
+모델 갱신 : valid loss 1.4846277110344541
+Epoch: 8, Train loss: 1.466, Valid loss: 1.452, Epoch time = 2483.601s
+모델 갱신 : valid loss 1.4520166525095262
+Epoch: 9, Train loss: 1.414, Valid loss: 1.431, Epoch time = 2453.932s
+모델 갱신 : valid loss 1.4308828746088604
+Epoch: 10, Train loss: 1.372, Valid loss: 1.413, Epoch time = 2460.905s
+모델 갱신 : valid loss 1.4132504213524428
+Epoch: 11, Train loss: 1.336, Valid loss: 1.400, Epoch time = 2540.148s
+모델 갱신 : valid loss 1.4000082420388507
+Epoch: 12, Train loss: 1.306, Valid loss: 1.391, Epoch time = 2510.970s
+모델 갱신 : valid loss 1.3907037798751185
+Epoch: 13, Train loss: 1.279, Valid loss: 1.387, Epoch time = 2539.693s
+모델 갱신 : valid loss 1.387165648864551
+Epoch: 14, Train loss: 1.255, Valid loss: 1.383, Epoch time = 2586.318s
+모델 갱신 : valid loss 1.38322614556803
+Epoch: 15, Train loss: 1.234, Valid loss: 1.379, Epoch time = 2544.464s
+모델 갱신 : valid loss 1.3792605788072418
+Epoch: 16, Train loss: 1.215, Valid loss: 1.376, Epoch time = 2427.704s
+모델 갱신 : valid loss 1.3756824398931617
+Epoch: 17, Train loss: 1.198, Valid loss: 1.374, Epoch time = 2441.897s
+모델 갱신 : valid loss 1.374030157645309
+Epoch: 18, Train loss: 1.182, Valid loss: 1.375, Epoch time = 2445.208s
+Epoch: 19, Train loss: 1.168, Valid loss: 1.374, Epoch time = 2408.379s
+모델 갱신 : valid loss 1.373899557480301
+Epoch: 20, Train loss: 1.154, Valid loss: 1.375, Epoch time = 2479.221s
+Epoch: 21, Train loss: 1.142, Valid loss: 1.377, Epoch time = 2483.432s
+Epoch: 22, Train loss: 1.130, Valid loss: 1.376, Epoch time = 2470.334s
+Epoch: 23, Train loss: 1.119, Valid loss: 1.380, Epoch time = 2487.802s
+Epoch: 24, Train loss: 1.109, Valid loss: 1.379, Epoch time = 2451.597s
+Epoch: 25, Train loss: 1.100, Valid loss: 1.382, Epoch time = 2477.435s
+Epoch: 26, Train loss: 1.090, Valid loss: 1.381, Epoch time = 2471.120s
+Epoch: 27, Train loss: 1.082, Valid loss: 1.385, Epoch time = 2510.251s
+Epoch: 28, Train loss: 1.073, Valid loss: 1.385, Epoch time = 2524.088s
+Epoch: 29, Train loss: 1.066, Valid loss: 1.393, Epoch time = 2671.508s
+Epoch: 30, Train loss: 1.059, Valid loss: 1.390, Epoch time = 2574.459s
+Epoch: 31, Train loss: 1.052, Valid loss: 1.399, Epoch time = 2454.929s
+Epoch: 32, Train loss: 1.045, Valid loss: 1.396, Epoch time = 2522.361s
+Epoch: 33, Train loss: 1.038, Valid loss: 1.399, Epoch time = 2529.606s
+Epoch: 34, Train loss: 1.032, Valid loss: 1.403, Epoch time = 2498.204s
+Epoch: 35, Train loss: 1.027, Valid loss: 1.406, Epoch time = 2499.345s
+Epoch: 36, Train loss: 1.021, Valid loss: 1.412, Epoch time = 2497.188s
+Epoch: 37, Train loss: 1.016, Valid loss: 1.415, Epoch time = 2523.874s
+Epoch: 38, Train loss: 1.010, Valid loss: 1.418, Epoch time = 2515.895s
+Epoch: 39, Train loss: 1.005, Valid loss: 1.414, Epoch time = 2522.796s
+Epoch: 40, Train loss: 1.000, Valid loss: 1.419, Epoch time = 2461.141s
+Epoch: 41, Train loss: 0.996, Valid loss: 1.420, Epoch time = 2512.067s
+Epoch: 42, Train loss: 0.991, Valid loss: 1.427, Epoch time = 2536.170s
+Epoch: 43, Train loss: 0.987, Valid loss: 1.425, Epoch time = 2496.841s
+Epoch: 44, Train loss: 0.983, Valid loss: 1.430, Epoch time = 2534.507s
+Epoch: 45, Train loss: 0.978, Valid loss: 1.437, Epoch time = 2521.535s
+Epoch: 46, Train loss: 0.974, Valid loss: 1.435, Epoch time = 2537.792s
+Epoch: 47, Train loss: 0.970, Valid loss: 1.436, Epoch time = 2436.079s
+Epoch: 48, Train loss: 0.967, Valid loss: 1.435, Epoch time = 2447.383s
+Epoch: 49, Train loss: 0.963, Valid loss: 1.440, Epoch time = 2427.399s
+Epoch: 50, Train loss: 0.960, Valid loss: 1.439, Epoch time = 2458.319s
+Epoch: 51, Train loss: 0.956, Valid loss: 1.449, Epoch time = 2501.182s
+Epoch: 52, Train loss: 0.953, Valid loss: 1.452, Epoch time = 2463.197s
+Epoch: 53, Train loss: 0.949, Valid loss: 1.455, Epoch time = 2449.302s
+Epoch: 54, Train loss: 0.946, Valid loss: 1.455, Epoch time = 2419.327s
+Epoch: 55, Train loss: 0.943, Valid loss: 1.458, Epoch time = 2462.747s
+Epoch: 56, Train loss: 0.940, Valid loss: 1.461, Epoch time = 2436.163s
+Epoch: 57, Train loss: 0.937, Valid loss: 1.461, Epoch time = 2445.659s
+Epoch: 58, Train loss: 0.935, Valid loss: 1.469, Epoch time = 2398.892s
+Epoch: 59, Train loss: 0.932, Valid loss: 1.464, Epoch time = 2454.007s
+Epoch: 60, Train loss: 0.929, Valid loss: 1.474, Epoch time = 2476.621s
+Epoch: 61, Train loss: 0.926, Valid loss: 1.470, Epoch time = 2568.470s
+Epoch: 62, Train loss: 0.923, Valid loss: 1.482, Epoch time = 2750.030s

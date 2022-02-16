@@ -104,19 +104,21 @@ def tensor_transform(token_ids: List[int]):
                       torch.tensor(token_ids),
                       torch.tensor([EOS_IDX])))
 
+token_transform, vocab_transform = BUILD_VOCAB_FROM_TRAIN()
 
-# 데이터를 텐서로 조합(collate)하는 함수
-def collate_fn(batch):
-
-    token_transform, vocab_transform = BUILD_VOCAB_FROM_TRAIN()
-
+def get_text_transform() :
     # 출발어(src)와 도착어(tgt) 원시 문자열들을 텐서 인덱스로 변환하는 변형(transform)
     text_transform = {}
     for ln in [SRC_LANGUAGE, TGT_LANGUAGE]:
         text_transform[ln] = sequential_transforms(token_transform[ln], # 토큰화(Tokenization)
                                                 vocab_transform[ln], # 수치화(Numericalization)
                                                 tensor_transform) # BOS/EOS를 추가하고 텐서를 생성
+    return text_transform
 
+# 데이터를 텐서로 조합(collate)하는 함수
+def collate_fn(batch):
+
+    text_transform = get_text_transform()
     src_batch, tgt_batch = [], []
     for src_sample, tgt_sample in batch:
         src_batch.append(text_transform[SRC_LANGUAGE](src_sample.rstrip("\n")))

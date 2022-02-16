@@ -140,13 +140,13 @@ def main(args) :
 
         if epoch == 1 :
             LEAST_VALID_LOSS = valid_loss
-            torch.save({'model' : transformer.state_dict(), 'optimizer':optimizer.state_dict()} , './BEST_MODEL.tar')
+            torch.save({'model' : transformer.state_dict(), 'optimizer':optimizer.state_dict()} , args.save_dir+'/BEST_MODEL.tar')
 
         else :
             if LEAST_VALID_LOSS > valid_loss :
                 print("모델 갱신 : valid loss {}".format(valid_loss))
                 LEAST_VALID_LOSS = valid_loss
-            torch.save({'model' : transformer.state_dict(), 'optimizer':optimizer.state_dict()} , './BEST_MODEL.tar')
+            torch.save({'model' : transformer.state_dict(), 'optimizer':optimizer.state_dict()} , args.save_dir+'/BEST_MODEL.tar')
 
 if __name__ == "__main__":
     args = argument_parsing()
