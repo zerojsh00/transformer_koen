@@ -93,9 +93,12 @@ def main(args) :
     print(f"디바이스 : {DEVICE}")
     
     print("어휘 생성 중 ...")
+    """
+        미리 구축한 torchtext의 어휘집(Vocab) 객체가 있다면 이를 활용하고, 없으면 학습 데이터로부터 새로 구축하여 만듦
+    """
     _, vocab_transform = BUILD_VOCAB_FROM_TRAIN()
-    SRC_VOCAB_SIZE = len(vocab_transform[SRC_LANGUAGE])
-    TGT_VOCAB_SIZE = len(vocab_transform[TGT_LANGUAGE])
+    SRC_VOCAB_SIZE = len(vocab_transform[SRC_LANGUAGE]) # 임베딩 매트릭스를 구성할때 활용됨 nn.Embedding(vocab_size, emb_size)
+    TGT_VOCAB_SIZE = len(vocab_transform[TGT_LANGUAGE]) # 임베딩 매트릭스를 구성할때 활용됨 nn.Embedding(vocab_size, emb_size)
 
     print("모델을 빌딩하는 중 ...")
     torch.manual_seed(0)

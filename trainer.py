@@ -25,7 +25,7 @@ class Trainer(object) :
             src = src.to(self.DEVICE)
             tgt = tgt.to(self.DEVICE)
 
-            tgt_input = tgt[:-1, :]
+            tgt_input = tgt[:-1, :] # batch에 있는 단어에서 <eos> 토큰을 제거함
 
             src_mask, tgt_mask, src_padding_mask, tgt_padding_mask = create_mask(src, tgt_input)
 
@@ -33,7 +33,10 @@ class Trainer(object) :
 
             self. optimizer.zero_grad()
 
-            tgt_out = tgt[1:, :]
+            tgt_out = tgt[1:, :] # batch에 있는 단어에서 <bos> 토큰을 제거한 정답 sequence
+
+            # tgt_input은 <bos> 토큰으로 '정답 sequence인 tgt_out의 첫 토큰'을 맞추려 함
+            # tgt_input의 마지막 토큰으로 '정답 sequence인 tgt_out의 마지막 토큰'인 <eos>를 맞추려 함
             loss = self.loss_fn(logits.reshape(-1, logits.shape[-1]), tgt_out.reshape(-1))
             loss.backward()
 
@@ -54,14 +57,19 @@ class Trainer(object) :
             src = src.to(self.DEVICE)
             tgt = tgt.to(self.DEVICE)
 
-            tgt_input = tgt[:-1, :]
+            tgt_input = tgt[:-1, :] # batch에 있는 단어에서 <eos> 토큰을 제거함
 
             src_mask, tgt_mask, src_padding_mask, tgt_padding_mask = create_mask(src, tgt_input)
 
-            logits = self.model(src, tgt_input, src_mask, tgt_mask,src_padding_mask, tgt_padding_mask, src_padding_mask)
+            logits = self.model(src, tgt_input, src_mask, tgt_mask, src_padding_mask, tgt_padding_mask, src_padding_mask)
 
-            tgt_out = tgt[1:, :]
+            tgt_out = tgt[1:, :] # batch에 있는 단어에서 <bos> 토큰을 제거한 정답 sequence
+
+            # tgt_input은 <bos> 토큰으로 '정답 sequence인 tgt_out의 첫 토큰'을 맞추려 함
+            # tgt_input의 마지막 토큰으로 '정답 sequence인 tgt_out의 마지막 토큰'인 <eos>를 맞추려 함
             loss = self.loss_fn(logits.reshape(-1, logits.shape[-1]), tgt_out.reshape(-1))
             losses += loss.item()
+
+            # valid에 대해서는 backward propagation을 수행하지 않음
 
         return losses / len(val_dataloader)

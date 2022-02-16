@@ -83,8 +83,13 @@ def main(args) :
         src = src.to(DEVICE)
         src_mask = src_mask.to(DEVICE)
 
-        memory = model.encode(src, src_mask)
+        memory = model.encode(src, src_mask) # input 시퀀스를 트랜스포머 encoder에 통과시킴
         ys = torch.ones(1, 1).fill_(start_symbol).type(torch.long).to(DEVICE)
+        """
+        >>> ys
+        tensor([[2]]) # BOS_IDX
+        """
+
         for i in range(max_len-1):
             memory = memory.to(DEVICE)
             tgt_mask = (generate_square_subsequent_mask(ys.size(0))
@@ -143,8 +148,7 @@ def main(args) :
         sentence = en_spm.DecodePieces(sentence.split())
         print("번역 : {}".format(sentence))
         
-        
-
+    
 
 if __name__ == "__main__":
     args = argument_parsing()

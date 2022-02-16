@@ -45,7 +45,7 @@ class Seq2SeqTransformer(nn.Module):
                  nhead: int,
                  src_vocab_size: int,
                  tgt_vocab_size: int,
-                 dim_feedforward: int = 512, # default vanilla transformer와 다르게 테스트함을 유의할 것
+                 dim_feedforward: int = 2048,
                  dropout: float = 0.1):
         super(Seq2SeqTransformer, self).__init__()
         self.transformer = Transformer(d_model=emb_size,
@@ -65,19 +65,27 @@ class Seq2SeqTransformer(nn.Module):
                 trg: Tensor,
                 src_mask: Tensor,
                 tgt_mask: Tensor,
-                src_padding_mask: Tensor,
-                tgt_padding_mask: Tensor,
-                memory_key_padding_mask: Tensor):
+                src_padding_mask: Tensor, # src_padding_mask
+                tgt_padding_mask: Tensor, # tgt_padding_mask
+                memory_key_padding_mask: Tensor): # src_padding_mask
+
+        # 토큰 임베딩을 거친 후 positional encoding을 수행하여 임베딩 벡터를 만듦
         src_emb = self.positional_encoding(self.src_tok_emb(src))
         tgt_emb = self.positional_encoding(self.tgt_tok_emb(trg))
+
+        # Seq2Seq 트랜스포머 네트워크를 통과함
         outs = self.transformer(src_emb, tgt_emb, src_mask, tgt_mask, None,
                                 src_padding_mask, tgt_padding_mask, memory_key_padding_mask)
+
+        # 디코더 결과를 linear layer에 통과시켜 타겟 vocab size 만큼 차원을 맞추어 줌
         return self.generator(outs)
 
+    # 학습을 마친 후 inference 시에 활용함
     def encode(self, src: Tensor, src_mask: Tensor):
         return self.transformer.encoder(self.positional_encoding(
                             self.src_tok_emb(src)), src_mask)
 
+    # 학습을 마친 후 inference 시에 활용함
     def decode(self, tgt: Tensor, memory: Tensor, tgt_mask: Tensor):
         return self.transformer.decoder(self.positional_encoding(
                           self.tgt_tok_emb(tgt)), memory,
