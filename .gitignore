@@ -1,4 +1,6 @@
 *.txt
 !requirements.txt
-raw_data/
-saved_model/
+raw_data/*.ko
+raw_data/*.en
+saved_model/*.tar
+
