@@ -1,6 +1,6 @@
 # PyTorch Vanilla Transformer NMT
 
-이 프로젝트는 AI-hub에 공개된 한/영 문장 데이터셋을 활용하여 만든 번역기로, **Attention Is All You Need**[[1]](#1)의 PyTorch 구현체를 정리한 코드입니다. 모델에 대한 자세한 사항은 원 논문을 참고하세요.
+이 프로젝트는 AI-hub에 공개된 한/영 문장 데이터셋을 활용하여 만든 번역기로, **Attention Is All You Need**[[1]](#1)의 PyTorch 구현체를 정리한 코드입니다. 모델에 대한 자세한 사항은 원 논문과 PyTorch Tutorial을 참고하세요.
 
 <br/>
 
@@ -101,6 +101,7 @@ raw_data
     ```
     <br/>
    학습 중 가장 낮은 validation loss로 기록 모델이 아래의 된경로에 `BEST_MODEL.tar` 파일로 저장됩니다.
+    
     ```
     saved_model
     └--BEST_MODEL.tar
