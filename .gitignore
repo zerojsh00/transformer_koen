@@ -1,3 +1,4 @@
 *.txt
+!requirements.txt
 raw_data/
 saved_model/

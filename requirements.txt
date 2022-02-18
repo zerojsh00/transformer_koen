@@ -1,0 +1,15 @@
+certifi==2020.6.20
+charset-normalizer==2.0.12
+dataclasses==0.8
+idna==3.3
+numpy==1.19.5
+Pillow==8.4.0
+requests==2.27.1
+sentencepiece==0.1.96
+torch==1.10.2+cu113
+torchaudio==0.10.2+cu113
+torchtext==0.11.2
+torchvision==0.11.3+cu113
+tqdm==4.62.3
+typing_extensions==4.1.1
+urllib3==1.26.8
