@@ -31,7 +31,7 @@ class Trainer(object) :
 
             logits = self.model(src, tgt_input, src_mask, tgt_mask, src_padding_mask, tgt_padding_mask, src_padding_mask)
 
-            self. optimizer.zero_grad()
+            self.optimizer.zero_grad()
 
             tgt_out = tgt[1:, :] # batch에 있는 단어에서 <bos> 토큰을 제거한 정답 sequence
 
