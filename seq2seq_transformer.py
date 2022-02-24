@@ -21,7 +21,7 @@ class PositionalEncoding(nn.Module):
         pos_embedding = pos_embedding.unsqueeze(-2)
 
         self.dropout = nn.Dropout(dropout)
-        self.register_buffer('pos_embedding', pos_embedding)
+        self.register_buffer('pos_embedding', pos_embedding) # 일종의 layer로써 작용하지만, optimizer에 의해 업데이트 되지 않도록 함
 
     def forward(self, token_embedding: Tensor):
         return self.dropout(token_embedding + self.pos_embedding[:token_embedding.size(0), :])

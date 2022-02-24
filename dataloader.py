@@ -17,6 +17,7 @@ SRC_LANGUAGE = 'ko'
 TGT_LANGUAGE = 'en'
 
 def GET_CUSTOM_KOEN_DATASET(split, language_pair=('ko', 'en')):
+    # torchtext에서 translation dataset(Multi30k 등)을 load 하는 방식을 참조함
     
     assert (split in ["train", "valid", "test"]), "split은 반드시 train, valid, test 중 하나여야 함"
     
@@ -83,6 +84,7 @@ def BUILD_VOCAB_FROM_TRAIN():
         for ln in [SRC_LANGUAGE, TGT_LANGUAGE]:
             # 학습용 데이터 반복자(iterator)
             train_iter = GET_CUSTOM_KOEN_DATASET(split='train', language_pair=(SRC_LANGUAGE, TGT_LANGUAGE))
+            
             # torchtext의 Vocab(어휘집) 객체 생성
             # (i.g.) vocab_transform['ko']에는 한국어 문장 토큰들을 활용하여 만들어진 torchtext의 Vocab 객체가 저장됨
             vocab_transform[ln] = build_vocab_from_iterator(yield_tokens(train_iter, ln),
