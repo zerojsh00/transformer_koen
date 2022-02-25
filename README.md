@@ -1,8 +1,6 @@
 # PyTorch Vanilla Transformer NMT
 
-이 프로젝트는 AI-hub에 공개된 한/영 문장 데이터셋을 활용하여 만든 번역기로, **Attention Is All You Need**[[1]](#1)의 PyTorch 구현체를 정리한 코드입니다. 모델에 대한 자세한 사항은 원 논문과 PyTorch Tutorial을 참고하세요.
-
-<br/>
+이 프로젝트는 AI-hub에 공개된 한/영 문장 데이터셋을 활용하여 만든 번역기로, **Attention Is All You Need**[[1]](#1)의 PyTorch 구현체를 정리한 코드입니다. 모델에 대한 자세한 사항은 원 논문과 PyTorch Tutorial을 참고하세요. <br/>
 
 ---
 
@@ -100,7 +98,7 @@ raw_data
     sh run-train.sh
     ```
     <br/>
-   학습 중 가장 낮은 validation loss로 기록 모델이 아래의 된경로에 `BEST_MODEL.tar` 파일로 저장됩니다.
+   학습 중 가장 낮은 validation loss로 기록된 모델이 아래의 경로에 `BEST_MODEL.tar` 파일로 저장됩니다.
     
     ```
     saved_model
@@ -113,9 +111,17 @@ raw_data
     python translate.py
     ```
     <br/>
+    
+4. API로써 번역기를 활용하고자 한다면, 아래의 명령어를 입력하여 `app.py` 파일을 실행합니다.
+    ```shell
+    flask run
+    ```
+    
+   그 후 다음과 같이 request를 입력하여 결과를 받아볼 수 있습니다.
+    
+    ![image](https://user-images.githubusercontent.com/65492843/155660616-48329204-91fc-407f-a4d1-81cf0c45e2f2.png)
 
-
-
+    
 ---
 
 ### References
