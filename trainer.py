@@ -35,6 +35,10 @@ class Trainer(object) :
 
             tgt_out = tgt[1:, :] # batch에 있는 단어에서 <bos> 토큰을 제거한 정답 sequence
 
+            # Transformer Network의 teacher forcing을 아래와 같이 구현함
+            # 즉, 학습시 auto regressive한 디코더의 특징을 활용하는 것이 아니라, 
+            # t-1시점의 예측과 무관히 t시점 디코더에는 ground truth 토큰을 입력함
+            
             # tgt_input은 <bos> 토큰으로 '정답 sequence인 tgt_out의 첫 토큰'을 맞추려 함
             # tgt_input의 마지막 토큰으로 '정답 sequence인 tgt_out의 마지막 토큰'인 <eos>를 맞추려 함
             loss = self.loss_fn(logits.reshape(-1, logits.shape[-1]), tgt_out.reshape(-1))
