@@ -3,4 +3,7 @@
 raw_data/*.ko
 raw_data/*.en
 saved_model/*.tar
-./__pycache__
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
