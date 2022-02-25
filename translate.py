@@ -57,7 +57,8 @@ def argument_parsing():
     args = parser.parse_args()
     return args
 
-
+with open("./vocab_transform.pkl", "rb") as f :
+        vocab_transform = pickle.load(f)
 
 # 탐욕(greedy) 알고리즘을 사용하여 출력 순서(sequence)를 생성하는 함수
 def greedy_decode(model, src, src_mask, max_len, start_symbol):
@@ -93,8 +94,9 @@ def greedy_decode(model, src, src_mask, max_len, start_symbol):
 
 
 # 입력 문장을 도착어로 번역하는 함수
-def translate(model: torch.nn.Module, src_sentence: str):
+def translate(model: torch.nn.Module, src_sentence: str, SRC_LANGUAGE='ko', TGT_LANGUAGE='en', start_symbol=2):
         model.eval()
+        text_transform = get_text_transform()
         src = text_transform[SRC_LANGUAGE](src_sentence).view(-1, 1)
         num_tokens = src.shape[0]
         src_mask = (torch.zeros(num_tokens, num_tokens)).type(torch.bool)
@@ -107,9 +109,6 @@ def translate(model: torch.nn.Module, src_sentence: str):
 
 if __name__ == "__main__":
         args = argument_parsing()
-
-        with open("./vocab_transform.pkl", "rb") as f :
-                vocab_transform = pickle.load(f)
         
         SRC_LANGUAGE = args.SRC_LANGUAGE
         TGT_LANGUAGE = args.TGT_LANGUAGE
@@ -121,8 +120,6 @@ if __name__ == "__main__":
         BOS_IDX = args.BOS_IDX
 
         DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-
-        text_transform = get_text_transform()
 
         SRC_VOCAB_SIZE = len(vocab_transform[SRC_LANGUAGE])
         TGT_VOCAB_SIZE = len(vocab_transform[TGT_LANGUAGE])
