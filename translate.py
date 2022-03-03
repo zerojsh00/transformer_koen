@@ -5,7 +5,7 @@ import numpy as np
 import pickle
 import sentencepiece as spm
 import argparse
-from dataloader import BOS_IDX, BUILD_VOCAB_FROM_TRAIN
+from dataloader import BOS_IDX
 from seq2seq_transformer import Seq2SeqTransformer
 from trainer import Trainer
 from timeit import default_timer as timer
@@ -65,6 +65,7 @@ def greedy_decode(model, src, src_mask, max_len, start_symbol):
         src = src.to(DEVICE)
         src_mask = src_mask.to(DEVICE)
 
+        model = model.to(DEVICE)
         memory = model.encode(src, src_mask) # input 시퀀스를 트랜스포머 encoder에 통과시킴
         ys = torch.ones(1, 1).fill_(start_symbol).type(torch.long).to(DEVICE)
         """
