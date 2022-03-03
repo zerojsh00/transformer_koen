@@ -7,8 +7,6 @@ import sentencepiece as spm
 import argparse
 from dataloader import BOS_IDX
 from seq2seq_transformer import Seq2SeqTransformer
-from trainer import Trainer
-from timeit import default_timer as timer
 
 from utils import *
 from dataloader import get_text_transform
